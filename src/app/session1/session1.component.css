@@ -1,0 +1,99 @@
+.btn btn-primary {
+    height: 200px;
+    width: 200px;
+}
+
+.text-right {
+    text-align: center;
+}
+
+.button {
+    position: absolute;
+    top: 50%;
+    color: 3E497A;
+}
+
+.container {
+    column-count: 1;
+    column-gap: 40px;
+    box-sizing: border-box;
+}
+
+.div {
+    width: 300px;
+    padding: 25px;
+}
+
+.add-task {
+    background-color: #608085;
+    width: 100%;
+    color: white;
+}
+
+.container {
+    background-color: #E5E3C9;
+    height: 100vh;
+    min-width: -webkit-fill-available;
+}
+
+.field-background-color {
+    background-color: #B4CFB0;
+}
+
+.add-title {
+    width: 100%;
+    height: 30px;
+    border-style: solid;
+    border-width: medium;
+}
+
+.add-description {
+    width: 100%;
+    height: 100px;
+    border-style: solid;
+    border-width: medium;
+}
+
+.btn-danger {
+    width: 100%;
+}
+
+.modal-content {
+    background-color: #E5E3C9;
+}
+
+.modal-footer {
+    background-color: #E5E3C9;
+}
+
+.card-header {
+    background-color: beige;
+    text-align: left;
+}
+
+.card-body {
+    background-color: beige;
+}
+
+.margin {
+    margin: 4%;
+}
+
+.add-button {
+    background-color: #608085;
+    color: white;
+}
+
+.date {
+    text-align: right;
+    background-color: beige;
+}
+
+.add-cancle {
+    background-color: #608085;
+    color: white;
+}
+
+.add-sss {
+    padding-top: 2%;
+}
