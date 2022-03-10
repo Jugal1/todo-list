@@ -18,7 +18,7 @@ export class Session1Component implements OnInit {
 
   form: any;
   dateObj: any;
-  isDisabled = true
+  isDisabled = true;
 
   constructor(private toastr: ToastrService) { }
 
@@ -29,7 +29,7 @@ export class Session1Component implements OnInit {
   editTitle = '';
   editDescription = '';
   todoList: any[] = [];
-
+  
 
   ngOnInit(): void {
 
