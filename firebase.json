@@ -1,6 +1,6 @@
 {
     "hosting": {
-        "public": "dist/udemy-session",
+        "public": "dist/",
         "ignore": [
             "firebase.json",
             "**/.*",
