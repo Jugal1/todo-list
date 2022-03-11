@@ -17,6 +17,7 @@ import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { DatePipe } from '@angular/common';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -37,12 +38,15 @@ import { DatePipe } from '@angular/common';
    
   ],
   imports: [
+
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule, 
     ToastrModule.forRoot(),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
+    
     
   ],
   providers: [DatePipe],
