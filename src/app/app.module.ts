@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule,  ReactiveFormsModule} from '@angular/forms';
-
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Session1Component } from './session1/session1.component';
@@ -17,9 +15,10 @@ import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { DatePipe } from '@angular/common';
+import { AngularFireModule } from '@angular/fire/compat';
+import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
-
-
 
 
 
@@ -45,11 +44,12 @@ import { environment } from 'src/environments/environment';
     BrowserAnimationsModule, 
     ToastrModule.forRoot(),
     ReactiveFormsModule,
-    
-    
+    AngularFireModule.initializeApp(environment.firebaseConfig , 'todolist')
+    // provideFirebaseApp(() => initializeApp({ ...environment.firebaseConfig })),
+    // provideFirestore(() => getFirestore()),
     
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {  }
