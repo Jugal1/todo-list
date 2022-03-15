@@ -1,3 +1,4 @@
+import { FirebaseService } from './../service/firebase.service';
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
@@ -12,15 +13,19 @@ import { ToastrService } from 'ngx-toastr';
 
 export class Session1Component implements OnInit {
 
+
   deletedTaskId = -1;
   edittaskId = -1;
   
 
+
   form: any;
   dateObj: any;
   isDisabled = true;
+  FirebaseService: any;
+  
 
-  constructor(private toastr: ToastrService) { }
+  constructor(private toastr: ToastrService,public fireBaseService: FirebaseService) { }
 
   editedTask: any[] = [];
   deletedTask: any[] = [];
@@ -29,11 +34,14 @@ export class Session1Component implements OnInit {
   editTitle = '';
   editDescription = '';
   todoList: any[] = [];
-  
+
+
 
   ngOnInit(): void {
 
   }
+
+ 
 
   addTask() {
     const todoObject = {
@@ -50,9 +58,11 @@ export class Session1Component implements OnInit {
       this.todoTitle = "";
       this.todoDescription = "";
       this.toastr.success('Task added successfully');
+      this.fireBaseService.addTask(todoObject);
 
     }
   }
+  
 
   deleteTask(i: any) {
     console.log(i);
@@ -66,15 +76,15 @@ export class Session1Component implements OnInit {
   }
 
   editTask(i: any) {
-    
+
     this.todoList.forEach((todoDetail, index) => {
       if (this.edittaskId === index) {
         todoDetail.title = this.editTitle.toUpperCase();
         todoDetail.description = this.editDescription;
         this.toastr.success(" Task edited successfully!!")
-        
+
       }
-     
+
     });
   }
 
@@ -82,5 +92,5 @@ export class Session1Component implements OnInit {
     this.edittaskId = editedIndexId;
     this.editTitle = title;
     this.editDescription = description;
-}
+  }
 }
