@@ -29,7 +29,7 @@ export class FirebaseService {
     })
   }
 
-  Getlist(){
+  getlist(){
     this.listRef = this.db.list('/');
     return this.listRef;
   }

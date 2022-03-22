@@ -40,11 +40,21 @@ export class Session1Component implements OnInit {
 
 
   ngOnInit(): void {
-    let todoListFirebase = this.fireBaseService.Getlist();
+    let todoListFirebase = this.fireBaseService.getlist();
+
     todoListFirebase.snapshotChanges().subscribe(data =>{
       data.forEach(item => {
+      const todoListBaseFire = item.payload.toJSON();
+      // TODO: FROM HERE
+      //  const todoListFirebase = {
+      //    title : ,
+
+         
+
+      //   }
         console.log(item.payload.toJSON());
       })
+      
     })
   }
 
