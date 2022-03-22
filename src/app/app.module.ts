@@ -44,7 +44,7 @@ import { environment } from 'src/environments/environment';
     BrowserAnimationsModule, 
     ToastrModule.forRoot(),
     ReactiveFormsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig , 'todolist')
+    AngularFireModule.initializeApp(environment.firebaseConfig)
     // provideFirebaseApp(() => initializeApp({ ...environment.firebaseConfig })),
     // provideFirestore(() => getFirestore()),
     
