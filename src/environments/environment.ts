@@ -4,16 +4,16 @@
 
 export const environment = {
   production: false,
-   firebaseConfig : {
-    apiKey: "AIzaSyAeiVdGsrSfsXFVYnLSFal56dahBz13cxs",
-    authDomain: "my-2nd-project-f192d.firebaseapp.com",
-    projectId: "my-2nd-project-f192d",
-    storageBucket: "my-2nd-project-f192d.appspot.com",
-    messagingSenderId: "862188104536",
-    appId: "1:862188104536:web:93a739e0dfd7dcd483132d",
-    measurementId: "G-CQSW86VDBQ"
+  firebaseConfig: {
+    apiKey: "AIzaSyBfcVbQq0eA2RK1Up2x2Goykp-PqGoBtMo",
+    authDomain: "todolist-167a7.firebaseapp.com",
+    databaseURL: "https://todolist-167a7-default-rtdb.firebaseio.com",
+    projectId: "todolist-167a7",
+    storageBucket: "todolist-167a7.appspot.com",
+    messagingSenderId: "66732100274",
+    appId: "1:66732100274:web:4030247a557eca47bf97ab"
   }
-  
+
 
 };
 

@@ -10,26 +10,32 @@ import {
 
 @Injectable({
   providedIn: 'root'
+  
 })
-export class FirebaseService {
-  addingTask(todoObject: { title: string; description: string; date: Date; }) {
-    throw new Error('Method not implemented.');
-  }
 
+export class FirebaseService {
 
   listRef!: AngularFireList<any>;
   listsRef!: AngularFireObject<any>;
   FirebaseService: any;
 
-
   constructor(private db: AngularFireDatabase) { }
 
 
   addTask(todoObject: any) {
+    this.listRef = this.db.list('/');
     this.listRef.push({
       ...todoObject
     })
+  }
 
+  Getlist(){
+    this.listRef = this.db.list('/');
+    return this.listRef;
+  }
 
+  deleteTask(todoObject: any){
+    this.listRef = this.db.list('/');
+    this.listRef.remove();
   }
 }

@@ -23,6 +23,9 @@ export class Session1Component implements OnInit {
   dateObj: any;
   isDisabled = true;
   FirebaseService: any;
+  FireBaseService: any;
+  
+  
   
 
   constructor(private toastr: ToastrService,public fireBaseService: FirebaseService) { }
@@ -36,10 +39,16 @@ export class Session1Component implements OnInit {
   todoList: any[] = [];
 
 
-
   ngOnInit(): void {
-
+    let todoListFirebase = this.fireBaseService.Getlist();
+    todoListFirebase.snapshotChanges().subscribe(data =>{
+      data.forEach(item => {
+        console.log(item.payload.toJSON());
+      })
+    })
   }
+
+  
 
  
 
@@ -59,15 +68,16 @@ export class Session1Component implements OnInit {
       this.todoDescription = "";
       this.toastr.success('Task added successfully');
       this.fireBaseService.addTask(todoObject);
-
+      
     }
   }
   
 
   deleteTask(i: any) {
     console.log(i);
-    this.todoList.splice(i, 1)
-    this.toastr.success("Task Deleted successfully!!")
+    this.todoList.splice(i, 1);
+    this.toastr.success("Task Deleted successfully!!");
+    // this.FireBaseService.deleteTask(this.todoList);
   }
 
   setDeleteId(deletedIndexId: number) {
@@ -94,3 +104,4 @@ export class Session1Component implements OnInit {
     this.editDescription = description;
   }
 }
+
