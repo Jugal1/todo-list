@@ -34,8 +34,8 @@ export class FirebaseService {
     return this.listRef;
   }
 
-  deleteTask(todoObject: any){
-    this.listRef = this.db.list('/');
+  deleteTask(id: string){
+    this.listRef = this.db.list('/' + id );
     this.listRef.remove();
   }
 }
