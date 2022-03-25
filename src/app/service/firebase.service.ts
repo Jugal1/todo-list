@@ -38,4 +38,10 @@ export class FirebaseService {
     this.listRef = this.db.list('/' + id );
     this.listRef.remove();
   }
+
+  updateList(id:string ,title:string,description:string){
+    this.listRef.update(id,
+      {title,description} )
+
+  }
 }

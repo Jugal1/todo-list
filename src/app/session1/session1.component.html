@@ -61,7 +61,7 @@
 
                                 </div>
                                 <div class="col-md-6">
-                                    <button class="btn btn-info add-task" data-bs-toggle="modal" data-bs-target="#editModal" (click)="setEditId(i,list.title,list.description)">Edit</button>
+                                    <button class="btn btn-info add-task" data-bs-toggle="modal" data-bs-target="#editModal" (click)="setEditId(list.id,list.title,list.description)">Edit</button>
                                 </div>
                             </div>
                         </div>
@@ -119,17 +119,13 @@
                             </div>
 
                         </div>
-                        <div *ngFor="let list of todoList; let i=index">
-                            {{list.Title}}
-                            <div class="card-text" placeholder="Description">{{list.Description}}</div>
-                        </div>
                     </div>
 
 
                     <div class="modal-footer">
 
-                        <button [disabled]="!(editTitle.trim() && editDescription.trim())" type="button" id="update" class="btn add-cancle" data-bs-dismiss="modal" (click)="editTask(edittaskId)">Update</button>
-                        <button type="button" class="btn add-cancle" data-bs-dismiss="modal" (click)="setEditId(-1,'','')">Cancle</button>
+                        <button [disabled]="!(editTitle.trim() && editDescription.trim())" type="button" id="update" class="btn add-cancle" data-bs-dismiss="modal" (click)="editTask()">Update</button>
+                        <button type="button" class="btn add-cancle" data-bs-dismiss="modal" (click)="setEditId('','','')">Cancle</button>
                     </div>
 
                 </div>
