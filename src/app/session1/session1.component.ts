@@ -10,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class Session1Component implements OnInit {
   deletedTaskId = -1;
-  edittaskId = -1;
+  edittaskId = '';
   form: any;
   dateObj: any;
   isDisabled = true;
@@ -44,7 +44,7 @@ export class Session1Component implements OnInit {
             description: todoListBaseFire.description,
             id: item.key,
           };
-          
+
           this.todoList.push(todoListFireBase);
           console.log(todoListFireBase);
         }
@@ -80,19 +80,19 @@ export class Session1Component implements OnInit {
     this.deletedTaskId = deletedIndexId;
   }
 
-  editTask(i: any) {
-    this.todoList.forEach((todoDetail, index) => {
-      if (this.edittaskId === index) {
-        todoDetail.title = this.editTitle.toUpperCase();
-        todoDetail.description = this.editDescription;
-        this.toastr.success(' Task edited successfully!!');
-      }
-    });
-  }
-
-  setEditId(editedIndexId: number, title: string, description: string) {
+  setEditId(editedIndexId: string, title: string, description: string) {
     this.edittaskId = editedIndexId;
     this.editTitle = title;
     this.editDescription = description;
+  }
+
+  editTask() {
+    this.fireBaseService.updateList(
+      this.edittaskId,
+      this.editTitle,
+      this.editDescription
+    );
+
+    this.toastr.success(' Task edited successfully!!');
   }
 }
