@@ -43,10 +43,11 @@ export class Session1Component implements OnInit {
             title: todoListBaseFire.title,
             description: todoListBaseFire.description,
             id: item.key,
+            date : todoListBaseFire.createDate
+            
           };
-
+          console.log(Date);
           this.todoList.push(todoListFireBase);
-          console.log(todoListFireBase);
         }
       });
       this.todoList.reverse();
@@ -57,9 +58,9 @@ export class Session1Component implements OnInit {
     const todoObject = {
       title: this.todoTitle.toUpperCase(),
       description: this.todoDescription,
-      date: new Date(),
+      createDate: new Date().toString(),
     };
-    if (this.todoTitle.trim() == '' && this.todoDescription.trim() == '') {
+    if (this.todoTitle.trim() == '' && this.todoDescription.trim() == '')  {
       this.toastr.warning('You must write somthing');
     } else {
       this.fireBaseService.addTask(todoObject);
@@ -67,6 +68,7 @@ export class Session1Component implements OnInit {
 
       this.todoTitle = '';
       this.todoDescription = '';
+      
     }
   }
 

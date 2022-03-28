@@ -32,12 +32,18 @@
 
 .container {
     background-color: #E5E3C9;
-    height: 100vh;
-    min-width: -webkit-fill-available;
+    height: 1500vh;
+    min-width: 100%;
 }
 
 .field-background-color {
     background-color: #B4CFB0;
+}
+
+.margin1 {
+    left: 0;
+    margin-top: 15%;
+    margin-left: 1%;
 }
 
 .add-title {
@@ -75,10 +81,6 @@
     background-color: beige;
 }
 
-.margin {
-    margin: 4%;
-}
-
 .add-button {
     background-color: #608085;
     color: white;
@@ -96,4 +98,26 @@
 
 .add-sss {
     padding-top: 2%;
+}
+
+.position {
+    position: fixed;
+    left: 0;
+}
+
+.position1 {
+    position: absolute;
+    right: 0;
+    margin-top: 10%;
+}
+
+@media only screen and (max-width: 770px) {
+    .position {
+        position: relative;
+        left: 0;
+    }
+    .position1 {
+        position: relative !important;
+        right: 0;
+    }
 }
