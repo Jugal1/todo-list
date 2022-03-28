@@ -1,35 +1,37 @@
 <div class="container">
-    <div class="margin">
-        <h1><b>TO-DO LIST</b></h1>
-    </div>
+
 
     <div class="margin">
         <form>
 
             <div class="row">
-                <div class="col-md-4">
-                    <div for="title" class="form-div">
-                        <h3><b>Title:</b></h3>
-                    </div>
-                    <input type="title" class="form-control add-title field-background-color" id="Title" name="Title" [(ngModel)]="todoTitle" [ngModelOptions]="{standalone:true}" placeholder="Title">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <div class="col-md-4 position">
+                    <div class="margin1">
+                        <h1><b>TO-DO LIST</b></h1>
 
-                    <br>
-                    <div class="mb-3">
-                        <div for="Description" class="form-div">
-                            <h3><b>Description:</b></h3>
+                        <div for="title" class="form-div">
+                            <h3><b>Title:</b></h3>
                         </div>
-                        <textarea class="form-control add-description field-background-color" id="Description" name="Description" [(ngModel)]="todoDescription" [ngModelOptions]="{standalone:true}" placeholder="Description"></textarea>
-                    </div>
-                    <div>
-                    </div><br>
-                    <div class="text-left" class="mb-3">
-                        <button class="btn btn-info add-task" type="button" (click)="addTask()">Add</button>
+                        <input type="title" class="form-control add-title field-background-color" id="Title" name="Title" [(ngModel)]="todoTitle" [ngModelOptions]="{standalone:true}" placeholder="Title">
+
+                        <br>
+                        <div class="mb-3">
+                            <div for="Description" class="form-div">
+                                <h3><b>Description:</b></h3>
+                            </div>
+                            <textarea class="form-control add-description field-background-color" id="Description" name="Description" [(ngModel)]="todoDescription" [ngModelOptions]="{standalone:true}" placeholder="Description"></textarea>
+                        </div>
+                        <div>
+                        </div><br>
+                        <div class="text-left" class="mb-3">
+                            <button class="btn btn-info add-task" type="button" (click)="addTask()">Add</button>
+
+                        </div>
 
                     </div>
-
-
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-8 position1">
 
 
 
@@ -71,63 +73,64 @@
             </div>
         </form>
     </div>
-    <!-- <button class="btn btn-info add-task" type="button" (click)="addTask()">Add</button> -->
+</div>
+<!-- <button class="btn btn-info add-task" type="button" (click)="addTask()">Add</button> -->
 
-    <!-- modal for delete -->
-    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Are you sure??</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
+<!-- modal for delete -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Are you sure??</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
 
-                <div class="modal-footer">
-                    <button type="button" class="btn add-button" data-bs-dismiss="modal" (click)="deleteTask(deletedTaskId)">Yes</button>
-                    <button type="button" class="btn add-button" data-bs-dismiss="modal" (click)="setDeleteId(-1)">No</button>
-                </div>
+            <div class="modal-footer">
+                <button type="button" class="btn add-button" data-bs-dismiss="modal" (click)="deleteTask(deletedTaskId)">Yes</button>
+                <button type="button" class="btn add-button" data-bs-dismiss="modal" (click)="setDeleteId(-1)">No</button>
             </div>
         </div>
     </div>
+</div>
 
 
 
-    <!-- model for edit -->
+<!-- model for edit -->
 
-    <div class="modal" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div for="title" class="form-div">
-                        <h3><b>Title:</b></h3>
-                    </div>
-                    <input type="title" class="form-control add-title field-background-color" id="title" name="title" [(ngModel)]="editTitle" [ngModelOptions]="{standalone:false}" placeholder="Title"><br>
-                    <div *ngIf="!editTitle.trim()">
-                        <div class="alert alert-danger" role="alert">
-                            Please enter a valid title!!
-                        </div>
-                    </div>
-                    <div>
-
-                        <div for="Description" class="form-div">
-                            <h3><b>Description:</b></h3>
-                            <textarea class="form-control add-description field-background-color" id="Description1" name="Description" [(ngModel)]="editDescription" [ngModelOptions]="{standalone:false}" placeholder="Description"></textarea><br>
-                            <div *ngIf="!editDescription.trim()">
-                                <div class="alert alert-danger" role="alert">
-                                    Please enter a valid description!!
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-
-                    <div class="modal-footer">
-
-                        <button [disabled]="!(editTitle.trim() && editDescription.trim())" type="button" id="update" class="btn add-cancle" data-bs-dismiss="modal" (click)="editTask()">Update</button>
-                        <button type="button" class="btn add-cancle" data-bs-dismiss="modal" (click)="setEditId('','','')">Cancle</button>
-                    </div>
-
+<div class="modal" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div for="title" class="form-div">
+                    <h3><b>Title:</b></h3>
                 </div>
+                <input type="title" class="form-control add-title field-background-color" id="title" name="title" [(ngModel)]="editTitle" [ngModelOptions]="{standalone:false}" placeholder="Title"><br>
+                <div *ngIf="!editTitle.trim()">
+                    <div class="alert alert-danger" role="alert">
+                        Please enter a valid title!!
+                    </div>
+                </div>
+                <div>
+
+                    <div for="Description" class="form-div">
+                        <h3><b>Description:</b></h3>
+                        <textarea class="form-control add-description field-background-color" id="Description1" name="Description" [(ngModel)]="editDescription" [ngModelOptions]="{standalone:false}" placeholder="Description"></textarea><br>
+                        <div *ngIf="!editDescription.trim()">
+                            <div class="alert alert-danger" role="alert">
+                                Please enter a valid description!!
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="modal-footer">
+
+                    <button [disabled]="!(editTitle.trim() && editDescription.trim())" type="button" id="update" class="btn add-cancle" data-bs-dismiss="modal" (click)="editTask()">Update</button>
+                    <button type="button" class="btn add-cancle" data-bs-dismiss="modal" (click)="setEditId('','','')">Cancle</button>
+                </div>
+
             </div>
         </div>
+    </div>
