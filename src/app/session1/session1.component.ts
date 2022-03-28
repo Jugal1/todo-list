@@ -71,7 +71,6 @@ export class Session1Component implements OnInit {
   }
 
   deleteTask(i: any) {
-    // this.todoList.splice(i, 1);
     this.fireBaseService.deleteTask(i);
     this.toastr.success('Task Deleted successfully!!');
   }
@@ -89,7 +88,7 @@ export class Session1Component implements OnInit {
   editTask() {
     this.fireBaseService.updateList(
       this.edittaskId,
-      this.editTitle,
+      this.editTitle.toUpperCase(),
       this.editDescription
     );
 
