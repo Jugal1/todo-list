@@ -5,3 +5,25 @@
 
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import '~ngx-toastr/toastr';
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    /* Remove scrollbar space */
+    background: transparent;
+    /* Optional: just make scrollbar invisible */
+}
+
+
+/* Optional: show position indicator in red */
+
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+
+.set-background-color {
+    background-color: #E5E3C9
+}
