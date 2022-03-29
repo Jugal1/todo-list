@@ -60,20 +60,20 @@
 }
 
 .modal-content {
-    background-color: #F5E6CA;
+    background-color: #F5EEDC;
 }
 
 .modal-footer {
-    background-color: #F5E6CA;
+    background-color: #F5EEDC;
 }
 
 .card-header {
-    background-color: #F5E6CA;
+    background-color: #F5EEDC;
     text-align: left;
 }
 
 .card-body {
-    background-color: #F5E6CA;
+    background-color: #F5EEDC;
 }
 
 .card-text {
@@ -88,7 +88,7 @@
 
 .date {
     text-align: right;
-    background-color: #F5E6CA;
+    background-color: #F5EEDC;
 }
 
 .add-cancel {
@@ -97,7 +97,7 @@
 }
 
 .add-sss {
-    padding-top: 2%;
+    margin-top: 2%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
 }
 
