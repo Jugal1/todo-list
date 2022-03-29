@@ -13,12 +13,6 @@
     color: 3E497A;
 }
 
-.container {
-    column-count: 1;
-    column-gap: 40px;
-    box-sizing: border-box;
-}
-
 .div {
     width: 300px;
     padding: 25px;
@@ -31,8 +25,9 @@
 }
 
 .container {
-    background-color: #E5E3C9;
-    height: 1500vh;
+    column-count: 1;
+    column-gap: 40px;
+    box-sizing: border-box;
     min-width: 100%;
 }
 
@@ -65,20 +60,25 @@
 }
 
 .modal-content {
-    background-color: #E5E3C9;
+    background-color: #F5E6CA;
 }
 
 .modal-footer {
-    background-color: #E5E3C9;
+    background-color: #F5E6CA;
 }
 
 .card-header {
-    background-color: beige;
+    background-color: #F5E6CA;
     text-align: left;
 }
 
 .card-body {
-    background-color: beige;
+    background-color: #F5E6CA;
+}
+
+.card-text {
+    min-height: 50px;
+    overflow-wrap: break-word;
 }
 
 .add-button {
@@ -88,16 +88,17 @@
 
 .date {
     text-align: right;
-    background-color: beige;
+    background-color: #F5E6CA;
 }
 
-.add-cancle {
+.add-cancel {
     background-color: #608085;
     color: white;
 }
 
 .add-sss {
     padding-top: 2%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
 }
 
 .position {
@@ -108,7 +109,10 @@
 .position1 {
     position: absolute;
     right: 0;
-    margin-top: 10%;
+    margin-top: 4%;
+    width: 100;
+    max-height: 100%;
+    overflow: auto;
 }
 
 @media only screen and (max-width: 770px) {
@@ -117,7 +121,10 @@
         left: 0;
     }
     .position1 {
-        position: relative !important;
+        position: inherit !important;
         right: 0;
+    }
+    .container {
+        height: auto;
     }
 }

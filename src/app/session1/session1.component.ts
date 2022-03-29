@@ -60,7 +60,7 @@ export class Session1Component implements OnInit {
       description: this.todoDescription,
       createDate: new Date().toString(),
     };
-    if (this.todoTitle.trim() == '' && this.todoDescription.trim() == '')  {
+    if (this.todoTitle.trim() === '' || this.todoDescription.trim() === '')  {
       this.toastr.warning('You must write somthing');
     } else {
       this.fireBaseService.addTask(todoObject);
