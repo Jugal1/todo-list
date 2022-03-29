@@ -60,20 +60,20 @@
 }
 
 .modal-content {
-    background-color: #E5E3C9;
+    background-color: #F5E6CA;
 }
 
 .modal-footer {
-    background-color: #E5E3C9;
+    background-color: #F5E6CA;
 }
 
 .card-header {
-    background-color: beige;
+    background-color: #F5E6CA;
     text-align: left;
 }
 
 .card-body {
-    background-color: beige;
+    background-color: #F5E6CA;
 }
 
 .card-text {
@@ -88,10 +88,10 @@
 
 .date {
     text-align: right;
-    background-color: beige;
+    background-color: #F5E6CA;
 }
 
-.add-cancle {
+.add-cancel {
     background-color: #608085;
     color: white;
 }
