@@ -32,7 +32,9 @@
                     </div>
                 </div>
                 <div class="col-md-8 position1">
-
+                    <div *ngIf="isLoading" class="height-100-vh">
+                        <app-spinner></app-spinner>
+                    </div>
 
 
 
