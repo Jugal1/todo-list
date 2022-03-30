@@ -1,5 +1,6 @@
+import { SpinnerComponent } from './spinner/spinner.component';
 import { HomeComponent } from './home/home.component';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { Session1Component } from './session1/session1.component';
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path: 'session6', component:Session6Component},
   {path: 'session7', component:Session7Component},
   {path: 'session9', component:Session9Component},
-  {path: 'session11', component:Session11Component}
+  {path: 'session11', component:Session11Component},
+  
   
 ];
 

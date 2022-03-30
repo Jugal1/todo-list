@@ -16,12 +16,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { DatePipe } from '@angular/common';
 import { AngularFireModule } from '@angular/fire/compat';
-import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
-import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
-
-
-
+import { SpinnerComponent } from './spinner/spinner.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +30,7 @@ import { environment } from 'src/environments/environment';
     Session9Component,
     Session11Component,
     HomeComponent,
+    SpinnerComponent,
    
   ],
   imports: [
@@ -45,9 +42,6 @@ import { environment } from 'src/environments/environment';
     ToastrModule.forRoot(),
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig)
-    // provideFirebaseApp(() => initializeApp({ ...environment.firebaseConfig })),
-    // provideFirestore(() => getFirestore()),
-    
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

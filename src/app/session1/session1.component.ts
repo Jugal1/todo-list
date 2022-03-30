@@ -1,6 +1,6 @@
 import { FirebaseService } from './../service/firebase.service';
 import { DatePipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -22,19 +22,24 @@ export class Session1Component implements OnInit {
   editTitle = '';
   editDescription = '';
   todoList: any[] = [];
-
+  isLoading: boolean = false;
+  
   constructor(
     private toastr: ToastrService,
-    public fireBaseService: FirebaseService
+    public fireBaseService: FirebaseService,
   ) {}
 
   ngOnInit(): void {
     this.fetchTask();
   }
   fetchTask() {
+    
     const todoListFirebase = this.fireBaseService.getlist();
+    this.isLoading =true;
+
     todoListFirebase.snapshotChanges().subscribe((data) => {
       this.todoList.length = 0;
+      this.isLoading =true;
       data.forEach((item) => {
         const todoListBaseFire: any = item.payload.toJSON();
 
@@ -46,9 +51,11 @@ export class Session1Component implements OnInit {
             date : todoListBaseFire.createDate
             
           };
-          console.log(Date);
-          this.todoList.push(todoListFireBase);
-        }
+         
+            this.todoList.push(todoListFireBase);
+            this.isLoading = false;
+            
+        };
       });
       this.todoList.reverse();
     });
@@ -63,13 +70,15 @@ export class Session1Component implements OnInit {
     if (this.todoTitle.trim() === '' || this.todoDescription.trim() === '')  {
       this.toastr.warning('You must write somthing');
     } else {
+      this.isLoading =true;
+
       this.fireBaseService.addTask(todoObject);
       this.toastr.success('Task added successfully');
 
       this.todoTitle = '';
       this.todoDescription = '';
-      
     }
+   
   }
 
   deleteTask(i: any) {

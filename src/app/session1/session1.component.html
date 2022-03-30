@@ -32,7 +32,9 @@
                     </div>
                 </div>
                 <div class="col-md-8 position1">
-
+                    <div *ngIf="isLoading" class="height-100-vh">
+                        <app-spinner></app-spinner>
+                    </div>
 
 
 
@@ -127,7 +129,7 @@
 
                 <div class="modal-footer">
 
-                    <button [disabled]="!(editTitle.trim() && editDescription.trim())" type="button" id="update" class="btn add-cancle" data-bs-dismiss="modal" (click)="editTask()">Update</button>
+                    <button [disabled]="!(editTitle.trim() && editDescription.trim())" type="button" id="update" class="btn add-cancel" data-bs-dismiss="modal" (click)="editTask()">Update</button>
                     <button type="button" class="btn add-cancel" data-bs-dismiss="modal" (click)="setEditId('','','')">Cancle</button>
                 </div>
 
