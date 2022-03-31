@@ -24,6 +24,8 @@
                         </div>
                         <div>
                         </div><br>
+
+
                         <div class="text-left" class="mb-3">
                             <button class="btn btn-info add-task" type="button" (click)="addTask()">Add</button>
 
@@ -56,7 +58,29 @@
 
 
                         <div class="card-body">
-                            <div class="card-text" placeholder="Description">{{list.description}}</div><br>
+                            <div class="card-text" placeholder="Description">{{list.description}}
+                                <!-- <select class="form-control status" name="status" id="status">
+                  
+                </select> -->
+                                <select (change)="onChange($event,list.id)">
+                  <option class="form-control new-task" value={{availableStatus.new}}>
+                    {{availableStatus.new}}
+                  </option>
+                  <option class="form-control in-progress" value={{availableStatus.in_progress}}>
+                    {{availableStatus.in_progress}}
+                  </option>
+                  <option class="form-control on-hold" value={{availableStatus.on_hold}}>
+                    {{availableStatus.on_hold}}
+                  </option>
+                  <option class="form-control completed" value={{availableStatus.completed}}>
+                    {{availableStatus.completed}}
+                  </option>
+                </select>
+
+                            </div>
+
+
+                            <br>
 
 
                             <div class="row">

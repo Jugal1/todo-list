@@ -23,23 +23,28 @@ export class Session1Component implements OnInit {
   editDescription = '';
   todoList: any[] = [];
   isLoading: boolean = false;
-  
+  status: string | undefined;
+
+  availableStatus = {
+    new: 'New',
+    in_progress: 'In-progress',
+    on_hold: 'On-hold',
+    completed: 'Completed',
+  };
   constructor(
     private toastr: ToastrService,
-    public fireBaseService: FirebaseService,
+    public fireBaseService: FirebaseService
   ) {}
 
   ngOnInit(): void {
     this.fetchTask();
   }
   fetchTask() {
-    
     const todoListFirebase = this.fireBaseService.getlist();
-    this.isLoading =true;
+    this.isLoading = true;
 
     todoListFirebase.snapshotChanges().subscribe((data) => {
       this.todoList.length = 0;
-      this.isLoading =true;
       data.forEach((item) => {
         const todoListBaseFire: any = item.payload.toJSON();
 
@@ -48,14 +53,12 @@ export class Session1Component implements OnInit {
             title: todoListBaseFire.title,
             description: todoListBaseFire.description,
             id: item.key,
-            date : todoListBaseFire.createDate
-            
+            date: todoListBaseFire.createDate,
+            status: todoListBaseFire.status,
           };
-         
-            this.todoList.push(todoListFireBase);
-            this.isLoading = false;
-            
-        };
+          this.todoList.push(todoListFireBase);
+          this.isLoading = false;
+        }
       });
       this.todoList.reverse();
     });
@@ -66,11 +69,12 @@ export class Session1Component implements OnInit {
       title: this.todoTitle.toUpperCase(),
       description: this.todoDescription,
       createDate: new Date().toString(),
+      status: this.availableStatus.new,
     };
-    if (this.todoTitle.trim() === '' || this.todoDescription.trim() === '')  {
-      this.toastr.warning('You must write somthing');
+    if (this.todoTitle.trim() === '' || this.todoDescription.trim() === '') {
+      this.toastr.warning('You must write something');
     } else {
-      this.isLoading =true;
+      this.isLoading = true;
 
       this.fireBaseService.addTask(todoObject);
       this.toastr.success('Task added successfully');
@@ -78,7 +82,6 @@ export class Session1Component implements OnInit {
       this.todoTitle = '';
       this.todoDescription = '';
     }
-   
   }
 
   deleteTask(i: any) {
@@ -100,9 +103,14 @@ export class Session1Component implements OnInit {
     this.fireBaseService.updateList(
       this.edittaskId,
       this.editTitle.toUpperCase(),
-      this.editDescription
+      this.editDescription,
+      this.status
     );
 
     this.toastr.success(' Task edited successfully!!');
+  }
+
+  onChange(event: any, id: string) {
+    this.fireBaseService.updateList(id, '', '', event.target.value);
   }
 }

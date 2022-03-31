@@ -10,7 +10,7 @@
 .button {
     position: absolute;
     top: 50%;
-    color: 3E497A;
+    color: #3E497A;
 }
 
 .div {
@@ -44,7 +44,7 @@
 .add-title {
     width: 100%;
     height: 30px;
-    border-style: solid;
+    border-style: solid black;
     border-width: medium;
 }
 
@@ -131,4 +131,43 @@
 
 .height-100-vh {
     height: 100vh !important;
+}
+
+.status {
+    background-color: #B4CFB0;
+    border-style: solid;
+    border-width: medium;
+    box-sizing: border-box;
+    width: auto;
+    position: relative;
+    left: 84%;
+    text-align: center;
+}
+
+.new-task {
+    text-align: center;
+    text-shadow: black;
+    font-weight: bold;
+    background-color: grey;
+}
+
+.in-progress {
+    text-align: center;
+    text-shadow: black;
+    font-weight: bold;
+    background-color: yellow;
+}
+
+.on-hold {
+    text-align: center;
+    text-shadow: black;
+    font-weight: bold;
+    background-color: #FF281B;
+}
+
+.completed {
+    text-align: center;
+    text-shadow: black;
+    font-weight: bold;
+    background-color: green;
 }
